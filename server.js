@@ -2,6 +2,8 @@ const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
 
+const port = process.env.PORT || 3000;
+
 var app = express();
 var server = http.createServer(app);
 var io = socketIO(server);
@@ -19,6 +21,6 @@ app.get('/',(req,res) => {
   res.send('Hello');
 });
 
-server.listen(3000,'0.0.0.0',() => {
-  console.log('Server listening to port 3000');
+server.listen(port,() => {
+  console.log('Server listening to port'+port);
 });
